@@ -98,6 +98,7 @@ Plug 'sainnhe/sonokai'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
 
 " Initialize plugin system
 call plug#end()
@@ -262,7 +263,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-let g:coc_global_extensions = ['coc-vimlsp', 'coc-explorer']
+let g:coc_global_extensions = ['coc-vimlsp', 'coc-explorer', 'coc-go', 'coc-clangd', 'coc-rust-analyzer']
 
 " === coc-explorer
 nmap tt <Cmd>CocCommand explorer<CR>
