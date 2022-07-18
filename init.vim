@@ -66,6 +66,8 @@ nnoremap <up> <C-w>k
 nnoremap <right> <C-w>l
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>V :split<CR>
+nnoremap Q  :q<CR>
+nnoremap W  :w<CR>
 nnoremap te :tabedit 
 nnoremap ta :tabnew 
 nnoremap tn :tabNext<CR>
@@ -99,6 +101,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdtree'
 
 " Initialize plugin system
 call plug#end()
@@ -263,10 +267,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-let g:coc_global_extensions = ['coc-vimlsp', 'coc-explorer', 'coc-go', 'coc-clangd', 'coc-rust-analyzer']
-
-" === coc-explorer
-nmap tt <Cmd>CocCommand explorer<CR>
+let g:coc_global_extensions = ['coc-vimlsp', 'coc-go', 'coc-clangd', 'coc-rust-analyzer']
 
 " ===
 " === end of coc.vim
@@ -281,9 +282,8 @@ colorscheme sonokai
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn))|(build|target|CmakeFiles)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -291,3 +291,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
+" === nerdtree.vim
+nnoremap tf :NERDTreeFocus<CR>
+nnoremap <leader>t :NERDTree<CR>
+nnoremap tt :NERDTreeToggle<CR>
+nnoremap tF :NERDTreeFind<CR>
