@@ -54,8 +54,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " === Key Mapping
 " ===
 let mapleader=" "
-nnoremap <leader>F :Format<CR>
-nnoremap <leader>f /
+
+" Windows Manage
+nnoremap <leader>f :Format<CR>
 " nnoremap <leader>h <C-w>h
 " nnoremap <leader>j <C-w>j
 " nnoremap <leader>k <C-w>k
@@ -66,16 +67,43 @@ nnoremap <up> <C-w>k
 nnoremap <right> <C-w>l
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>V :split<CR>
+
+" quit and save
 nnoremap Q  :q<CR>
 nnoremap W  :w<CR>
+
+" buffer
+nnoremap <leader>[ :bprevious<cr>
+nnoremap <leader>] :bnext<cr>
+
+" Tab
 nnoremap te :tabedit 
 nnoremap ta :tabnew 
 nnoremap tn :tabNext<CR>
 nnoremap tp :tabprevious<CR>
 nnoremap tc :tabclose<CR>
 
+" Update Neovim Config 
 nnoremap <leader>= :source $HOME/.config/nvim/init.vim<CR> " source config
 nnoremap <leader>+ :e $HOME/.config/nvim/init.vim<CR> " edit config
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " ===
 " === vim-plug
@@ -103,6 +131,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+Plug 'joshdick/onedark.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -274,9 +305,7 @@ let g:coc_global_extensions = ['coc-vimlsp', 'coc-go', 'coc-clangd', 'coc-rust-a
 " ===
 
 " === theme
-set background=dark    " Setting dark mode
-"colorscheme gruvbox
-colorscheme sonokai
+source $HOME/.config/nvim/theme.vim
 
 " === ctrlP.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -296,3 +325,9 @@ nnoremap tf :NERDTreeFocus<CR>
 nnoremap <leader>t :NERDTree<CR>
 nnoremap tt :NERDTreeToggle<CR>
 nnoremap tF :NERDTreeFind<CR>
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_stl_path_style = 'short'
+
+set signcolumn=yes
