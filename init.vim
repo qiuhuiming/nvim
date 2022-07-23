@@ -3,6 +3,7 @@
 " ===
 let &t_ut=''
 set autochdir
+set signcolumn=yes
 set exrc
 set secure
 set number
@@ -56,7 +57,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let mapleader=" "
 
 " Windows Manage
-nnoremap <leader>f :Format<CR>
+nnoremap <leader>F :Format<CR>
 " nnoremap <leader>h <C-w>h
 " nnoremap <leader>j <C-w>j
 " nnoremap <leader>k <C-w>k
@@ -125,7 +126,6 @@ Plug 'ibhagwan/fzf-lua'
 Plug 'theniceboy/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/sonokai'
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
@@ -134,6 +134,7 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'joshdick/onedark.vim'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 " Initialize plugin system
 call plug#end()
@@ -307,19 +308,6 @@ let g:coc_global_extensions = ['coc-vimlsp', 'coc-go', 'coc-clangd', 'coc-rust-a
 " === theme
 source $HOME/.config/nvim/theme.vim
 
-" === ctrlP.vim
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn))|(build|target|CmakeFiles)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
 " === nerdtree.vim
 nnoremap tf :NERDTreeFocus<CR>
 nnoremap <leader>t :NERDTree<CR>
@@ -330,4 +318,37 @@ nnoremap tF :NERDTreeFind<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_stl_path_style = 'short'
 
-set signcolumn=yes
+" === leaderF.vim
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>ff"
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+
+let g:Lf_WorkingDirectoryMode = 'Ac'
