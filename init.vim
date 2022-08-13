@@ -1,5 +1,6 @@
 source $HOME/.config/nvim/editor.vim
 source $HOME/.config/nvim/key_binding.vim
+source $HOME/.config/nvim/autocmd.vim
 
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -17,7 +18,6 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
