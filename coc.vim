@@ -154,7 +154,7 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
-let g:coc_extions = [
+let g:coc_global_extensions = [
 \	'coc-clangd',
 \   'coc-cmake',
 \   'coc-go',
