@@ -170,4 +170,4 @@ let g:coc_global_extensions = [
 \   'coc-yank',
 \   'coc-lists',
 \   'coc-git',
-\   'coc-vimslp']
+\   'coc-vimlsp']
