@@ -4,10 +4,10 @@ let mapleader=" "
 nnoremap <leader>F :Format<CR>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>V :split<CR>
-nnoremap <up> <C-w>k
-nnoremap <down> <C-w>j
-nnoremap <left> <C-w>h
-nnoremap <right> <C-w>l
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wl <C-w>l
 
 " buffer
 nnoremap <leader>[ :bprevious<cr>
@@ -26,3 +26,10 @@ nnoremap <leader>+ :vsplit $HOME/.config/nvim/init.vim<CR> " edit config
 
 " Use jj to enter normal mode instead of <esc>
 inoremap jj <esc>
+
+" New line
+inoremap ;; <esc>A;<CR>
+inoremap ;' <esc>A;
+inoremap ;<CR> <esc>o
+imap ;{ <esc>A {<CR>
+imap ;[ <esc>A [<CR>
