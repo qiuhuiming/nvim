@@ -9,6 +9,11 @@ nnoremap <leader>wj <C-w>j
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 
+nnoremap <up> <C-w>k
+nnoremap <down> <C-w>j
+nnoremap <left> <C-w>h
+nnoremap <right> <C-w>l
+
 " buffer
 nnoremap <leader>[ :bprevious<cr>
 nnoremap <leader>] :bnext<cr>
