@@ -28,8 +28,8 @@ nnoremap <leader>+ :vsplit $HOME/.config/nvim/init.vim<CR> " edit config
 inoremap jj <esc>
 
 " New line
-inoremap ;' <esc>A;
-inoremap ;<CR> <esc>A;<CR>
-inoremap '<CR> <esc>O
-imap ;{ <esc>A {
-imap ;[ <esc>A [
+inoremap <silent>;' <esc>A;
+inoremap <silent>;<CR> <esc>A;<CR>
+inoremap <silent>'<CR> <esc>O
+imap <silent>;{ <esc>A {
+imap <silent>;[ <esc>A [

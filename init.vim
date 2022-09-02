@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'joshdick/onedark.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'sainnhe/everforest'
 
 " Initialize plugin system
 call plug#end()

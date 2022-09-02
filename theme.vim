@@ -1,2 +1,2 @@
 set background=dark    " Setting dark mode
-colorscheme gruvbox
+colorscheme everforest
