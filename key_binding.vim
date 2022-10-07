@@ -26,10 +26,3 @@ nnoremap <leader>+ :vsplit $HOME/.config/nvim/init.vim<CR> " edit config
 
 " Use jj to enter normal mode instead of <esc>
 inoremap jj <esc>
-
-" New line
-inoremap <silent>;' <esc>A;
-inoremap <silent>;<CR> <esc>A;<CR>
-inoremap <silent>'<CR> <esc>O
-imap <silent>;{ <esc>A {
-imap <silent>;[ <esc>A [
