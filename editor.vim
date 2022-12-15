@@ -4,7 +4,7 @@ set secure
 set number
 set relativenumber
 set cursorline
-set noexpandtab
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
