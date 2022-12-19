@@ -15,7 +15,7 @@ noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 noremap <leader>rw :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <leader>rW :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR
+noremap <leader>rW :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 noremap <leader>rg :Leaderf rg 
 
 xnoremap <leader>rv :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
