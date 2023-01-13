@@ -25,3 +25,7 @@ nnoremap <leader>+ :vsplit $HOME/.config/nvim/init.vim<CR> " edit config
 
 " Use jj to enter normal mode instead of <esc>
 inoremap jj <esc>
+
+" Shortcut
+nnoremap W :w<CR>
+nnoremap Q :q<CR>
