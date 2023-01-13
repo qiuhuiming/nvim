@@ -1,7 +1,6 @@
 let mapleader=" "
 
 " Windows Manage
-nnoremap <leader>F :Format<CR>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>V :split<CR>
 nnoremap <leader>wk <C-w>k
