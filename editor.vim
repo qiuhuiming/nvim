@@ -1,4 +1,5 @@
 let &t_ut=''
+set mouse=a
 set exrc
 set secure
 set number
