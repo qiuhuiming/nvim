@@ -24,6 +24,7 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'joshdick/onedark.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'sainnhe/everforest'
+Plug 'jiangmiao/auto-pairs'
 
 " Initialize plugin system
 call plug#end()
