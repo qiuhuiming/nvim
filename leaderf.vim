@@ -31,3 +31,4 @@ noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WildIgnore = {'dir': ['nvimw*']}
