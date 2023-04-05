@@ -43,6 +43,3 @@ nnoremap tt :NERDTreeToggle<CR>
 nnoremap tF :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.git$']
 let NERDTreeShowHidden = 1
-
-" vim-airline
-let g:airline#extensions#tabline#enabled = 1
